@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talking Rabbitt - Conversational Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="rabbit-icon">🐰</span>
+                <h1>Talking Rabbitt</h1>
+            </div>
+            <p class="tagline">Talk to your data. Get answers in seconds.</p>
+        </header>
+
+        <!-- API Configuration -->
+        <section class="config-section" id="configSection">
+            <div class="card">
+                <h2>🔑 API Configuration</h2>
+                <p>Select your AI provider and enter the corresponding API key.</p>
+                
+                <div class="provider-select">
+                    <label>
+                        <input type="radio" name="provider" value="gemini" checked />
+                        <span>Google Gemini</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="provider" value="openai" />
+                        <span>OpenAI</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="provider" value="groq" />
+                        <span>Groq</span>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="apiKey" placeholder="Enter API key" />
+                    <button onclick="configureAPI()">Configure</button>
+                </div>
+                <p class="hint" id="providerHint">Using Gemini API for faster, more affordable queries.</p>
+                <p class="hint">Gemini: AIzaSy... | OpenAI: sk-... | Groq: gsk_...</p>
+            </div>
+        </section>
+
+        <!-- Main App -->
+        <main id="mainApp" style="display: none;">
+            <!-- Data Upload Section -->
+            <section class="upload-section">
+                <div class="card">
+                    <h2>📊 Data Upload</h2>
+                    <div class="upload-controls">
+                        <label for="csvFile" class="file-upload-btn">
+                            📁 Choose CSV File
+                        </label>
+                        <input type="file" id="csvFile" accept=".csv" onchange="handleFileUpload()" />
+                        <span id="fileName" class="file-name">No file chosen</span>
+                    </div>
+                    <button class="secondary-btn" onclick="loadSampleData()">Load Sample Data</button>
+                    
+                    <div id="dataInfo" class="data-info" style="display: none;">
+                        <p>✅ <strong id="rowCount">0</strong> rows loaded | <strong id="colCount">0</strong> columns</p>
+                        <p class="columns-list">Columns: <span id="columnsDisplay"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Query Section -->
+            <section class="query-section">
+                <div class="card">
+                    <h2>💬 Ask Your Data</h2>
+                    <div class="query-input-area">
+                        <input 
+                            type="text" 
+                            id="question" 
+                            placeholder="e.g., Which region had the highest revenue in Q1?"
+                            onkeypress="handleKeyPress(event)"
+                        />
+                        <button onclick="askQuestion()">Ask</button>
+                    </div>
+                    <div class="example-questions">
+                        <p>Try asking:</p>
+                        <span class="example" onclick="setQuestion('Which region had the highest revenue?')">Which region had the highest revenue?</span>
+                        <span class="example" onclick="setQuestion('Show revenue by product category')">Show revenue by product category</span>
+                        <span class="example" onclick="setQuestion('What was the total units sold in Q2?')">What was the total units sold in Q2?</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="card">
+                    <h2>📈 Answer</h2>
+                    <div id="answer" class="answer-box">
+                        <p>Upload data and ask a question to get started!</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>📊 Visualization</h2>
+                    <div class="chart-container">
+                        <canvas id="dataChart"></canvas>
+                    </div>
+                    <div id="noChart" class="no-chart">
+                        <p>Ask a question that requires visualization!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>🤖 Talking Rabbitt | Powered by Google Gemini</p>
+            <p class="tagline">The Future of Conversational Analytics</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

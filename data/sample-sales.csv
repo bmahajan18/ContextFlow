@@ -1,0 +1,26 @@
+Region,Product,Quarter,Revenue,Units
+North,Electronics,Q1,45000,150
+South,Electronics,Q1,52000,180
+East,Electronics,Q1,38000,120
+West,Electronics,Q1,61000,200
+North,Clothing,Q1,28000,400
+South,Clothing,Q1,32000,450
+East,Clothing,Q1,25000,350
+West,Clothing,Q1,35000,500
+North,Electronics,Q2,48000,160
+South,Electronics,Q2,55000,190
+East,Electronics,Q2,42000,140
+West,Electronics,Q2,65000,210
+North,Clothing,Q2,30000,420
+South,Clothing,Q2,34000,480
+East,Clothing,Q2,27000,380
+West,Clothing,Q2,38000,540
+North,Home & Garden,Q1,22000,180
+South,Home & Garden,Q1,28000,220
+East,Home & Garden,Q1,19000,150
+West,Home & Garden,Q1,31000,250
+North,Home & Garden,Q2,24000,190
+South,Home & Garden,Q2,30000,230
+East,Home & Garden,Q2,21000,160
+West,Home & Garden,Q2,33000,270
+
