@@ -35,6 +35,21 @@ async function configureAPI() {
             body: JSON.stringify({ apiKey, provider })
         });
 
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Server returned non-OK response:', response.status, errorText.substring(0, 500));
+            alert('Server error (' + response.status + '). Please check Vercel function logs.');
+            return;
+        }
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const errorText = await response.text();
+            console.error('Server returned non-JSON response:', errorText.substring(0, 500));
+            alert('Server returned unexpected response. Please check Vercel function logs.');
+            return;
+        }
+
         const result = await response.json();
         
         if (result.success) {

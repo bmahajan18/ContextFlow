@@ -4,7 +4,6 @@ const multer = require('multer');
 const Papa = require('papaparse');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const OpenAI = require('openai');
-const Groq = require('groq');
 const path = require('path');
 const fs = require('fs');
 
@@ -308,8 +307,13 @@ app.get('/api/sample-data', (req, res) => {
     });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🤖 Talking Rabbitt API running on http://localhost:${PORT}`);
-});
+// Start server (only in local development, not in serverless environments)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🤖 Talking Rabbitt API running on http://localhost:${PORT}`);
+    });
+}
+
+// Export for serverless environments (Vercel)
+module.exports = app;
 
