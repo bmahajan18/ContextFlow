@@ -1,4 +1,4 @@
-# ContextFlow (a.k.a. Talking Rabbitt) — The Story Behind the Code
+# ContextFlow — The Story Behind the Code
 
 > **"What if Excel could talk back?"**
 >
@@ -140,7 +140,7 @@ ContextFlow/
 ├── server.js              # The Express backend — heart of the system
 ├── package.json           # Node.js dependencies and scripts
 ├── vercel.json            # Deployment configuration for Vercel
-├── README.md              # Project description (says "rabbittAI")
+├── README.md              # Project description
 ├── TODO.md                # Development log — bugs found and fixed
 │
 ├── public/                # Frontend files (served as static assets)
@@ -374,7 +374,7 @@ We deployed on **Vercel** using the `vercel.json` configuration:
 
 **Why Vercel?** It's free for hobby projects, has excellent Node.js support, and deploys from Git in seconds. The routing config ensures that `/api/*` requests hit our Express server while everything else serves static files from `public/`.
 
-**Live URL:** https://rabbitai-roan.vercel.app
+**Live URL:** https://contextflow.vercel.app
 
 ---
 
@@ -396,7 +396,7 @@ Supporting three AI providers from day one felt like over-engineering. But when 
 
 The quality of answers depends entirely on the prompt. Our prompt isn't just "here's data, answer this question." It explicitly tells the AI:
 - Its persona ("You are a data analyst assistant")
-- The tool's name ("Talking Rabbitt")
+- The tool's name ("ContextFlow")
 - The constraints ("Only use data from the provided dataset")
 - The output format (strict JSON schema)
 - When to visualize ("Determine if a visualization would help")
@@ -480,11 +480,11 @@ A React app with TypeScript, Redux, and GraphQL would look impressive on a resum
 
 ---
 
-## The Name Game: From Talking Rabbitt to ContextFlow
+## The Name Game: From Concept to ContextFlow
 
-Notice the inconsistency? The `package.json` says "talking-rabbit-mvp". The `README.md` says "rabbittAI". The HTML title says "ContextFlow". The footer says "Talking Rabbitt".
+Notice the evolution? The project started with various working names, but now everything is unified under "ContextFlow".
 
-This is actually a common startup journey. You build something, give it a cute name (Talking Rabbitt 🐰), then realize you need something more professional for the portfolio (ContextFlow). The branding evolved, but the code still has traces of the old name.
+This is actually a common startup journey. You build something, iterate on the concept, then realize you need something more professional for the portfolio (ContextFlow). The branding evolved and the code has been updated to match.
 
 **Lesson:** Don't let perfect branding block shipping. You can rebrand later. The code doesn't care what you call it.
 
